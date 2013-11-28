@@ -1,0 +1,156 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <Windows.h>
+void sifreDogrulama();
+void ATM();
+void menu();
+void secim1();
+void secim2();
+void secim3();
+void secim4();
+
+int main()
+{
+	int id,pw,secim,pym,pcm,bm,a,b,pm,hn,c,gs;
+	sifreDogrulama();
+	getch();
+} 
+void sifreDogrulama()
+{
+	int id,pw,secim;
+	printf("Hosgeldiniz.\n\t\n");
+	for(;;)
+	{	
+		printf("Lutfen kullanici adinizi giriniz: ");	//Benim programimda Kullanici adi=1436, Şifre=5069'dir.
+		scanf("%d",&id);								// id = Kullanıcı adı
+		printf("\nSifrenizi giriniz: ");
+		scanf("%d",&pw);
+		if(id == 1436 && pw == 5069)
+			break;
+		else
+		{
+			printf("\nKullanici adinizi veya sifrenizi yanlis girdiniz.");
+			Sleep(1000);
+			system("cls");
+		}
+	}
+	ATM();
+}
+
+void ATM()
+{
+	int secim;
+	
+	menu();
+	scanf("%d",&secim);			//seçim menüsü burada ekrana çıkarılır.
+	if(secim == 1)
+		secim1();
+	else if(secim == 2)
+		secim2();
+	else if(secim == 3)
+		secim3();	
+	else if(secim == 4)
+		secim4();
+	else if(secim == 5)
+		system ("PAUSE");
+	else 
+		printf("Yanlis bir secim girdiniz.");
+}
+
+void menu()
+{
+	printf("\nLutfen yapmak istediginiz secimi giriniz: \n1 == Para Yatirma\n2 == Para Cekme\n3 == Baska Bir Hesaba Para Aktarma\n4 == Bakiye Sorgulama\n5 == Cikis\n\n");
+}
+
+void secim1()
+{	
+	system("cls");
+	int pym,bm,a;
+	bm=5500;				// bm = bakiye miktarı
+	printf("\nLutfen yatirmak istediginiz miktari giriniz: ");
+	scanf("%d",&pym);		//pym=para yatirma miktari
+	printf("\nHesabiniza %d TL yatirmak istediginizden emin misiniz?		\t\nEVET icin '1'i, HAYIR icin '2'yi tuslayiniz: ",pym);
+	scanf("%d",&a);		//a= buradaki evet, hayır secimi için kullandığım harf.
+	if(a==1)
+	{
+		bm=bm+pym;
+		printf("\nParaniz hesabiniza yatirilmistir. \nHesabinizdaki para miktari %d TL olmustur.",bm);
+	}
+	else if(a==2)
+	{
+		printf("\nPara yatirma isleminiz iptal edilmistir.");
+	}
+	else
+		printf("\nYanlis bir secim girdiniz.");
+}
+
+void secim2()
+{	
+	system("cls");
+	int pcm,bm,b;
+	bm=5500;				// bm = bakiye miktarı
+	printf("\nLutfen cekmek istediginiz miktari giriniz: ");
+	scanf("%d",&pcm);		//pcm=para cekme miktari
+	if(pcm>5500)
+		printf("\nHesabinizda yeterli bakiye bulunmamaktadir.");
+	else
+	{
+
+		printf("\nHesabinizdan %d TL cekmek istediginizden emin misiniz?		\t\nEVET icin '1'i, HAYIR icin '2'yi tuslayiniz: ",pcm);
+		scanf("%d",&b);		//b= buradaki evet,hayır seçimi için kullandığım harf
+		if(b==1) 
+		{
+			bm=bm-pcm;
+			printf("\nPara cekme isleminiz basariyla tamamlanmistir. \nHesabinizdaki para miktari %d TL olmustur.",bm);
+		}
+		else if(b==2)
+		{
+			printf("\nPara cekme isleminiz iptal edilmistir.");
+		}
+		else
+			printf("\nYanlis bir secim girdiniz.");
+	}
+}
+
+void secim3()
+{	
+	system("cls");
+	int bm,pm,hn,c;
+	bm=5500;				// bm = bakiye miktarı
+	printf("\nLutfen gondermek istediginiz miktari giriniz: ");
+	scanf("%d",&pm);		//pm = başka bir hesaba göndermek istediği para miktarı
+	if(pm<5501)
+	{
+		printf("\nLutfen %d TL gondermek istediginiz hesap numarasini giriniz: ",pm);
+		scanf("%d",&hn);		//hn = hesap numarası
+		printf("\n%d nolu hesaba %d TL gondermek istediginizden emin misiniz?		EVET icin '1'i , HAYIR icin '2'yi tuslayiniz: ",hn,pm);
+		scanf("%d",&c);		//c = buradaki evet, hayır secimi için kullandığım harf.
+		if(c==1)
+		{
+			bm=bm-pm;
+			printf("\nPara gonderme isleminiz basariyla tamamlanmistir. \nHesabinizdaki para miktari %d TL olmustur.",bm);
+		}
+		else if(c==2)
+		{
+			printf("\nPara gonderme isleminiz iptal edilmistir.");
+		}
+		else
+			printf("\nYanlis bir secim girdiniz.");
+
+	}
+	else
+		printf("\nHesabinizda yeterli bakiye bulunmamaktadir.");
+}
+
+void secim4()
+{	
+	system("cls");
+	printf("\nHesabinizda 5500 TL vardir.");
+}
+
+
+
+
+
+
