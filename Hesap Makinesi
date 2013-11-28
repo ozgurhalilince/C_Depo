@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <conio.h>
+
+int toplamaIslemi(int,int);			// F             R
+int cikarmaIslemi(int,int);			//	O           A
+int carpmaIslemi(int,int);			//   N         L
+float bolmeIslemi(int,int);			//	  K	      N
+void hesapMakinesi();				    //     S     O
+void menu();					        	//       İ  Y
+
+int main()							// ANA FONKSİYON
+{
+	int s1;							//Kullanıcıdan alacağımız 1. sayı
+	int s2;							//Kullanıcıdan alacağımız 2. sayı				
+
+	hesapMakinesi();				//Bu komut ile "hesapMakinesi" adlı fonksiyona gideriz.
+
+	getch();
+}
+
+void hesapMakinesi()									// Hatırlarsanız ana fonksiyonda "hesapMakinesi();" komutuyla bu fonksiyona giriş yapmıştık.
+{		
+	int s1,s2,secim;
+	printf("Birinci sayiyi giriniz: ");					//Burada kullanıcıdan 1.sayı alınır.
+	scanf("%d",&s1);		
+	printf("İkinci sayiyi giriniz: ");					//Burada kullanıcıdan 2.sayı alınır.
+	scanf("%d",&s2);	
+	printf("\nLutfen yapmak istediginiz islemi giriniz: \n1 == Toplama\n2 == Cikarma\n3 == Carpma\n4 == Bolme\n5 == Cikis\n\n");
+	scanf("%d",&secim);									//printf komutu ile ekrana menü çıkarılır, scanf ile yapacağı seçim alınır.
+
+	switch(secim)												
+	{
+	case 1:															//		Eğer kullanıcı menüyü görüp seçimini 1 girerse bu case'e girer ve printf'in içindeki %d 
+		printf("Toplama sonucu: %d\n",toplamaIslemi(s1,s2));		//"toplamaIslemi" fonksiyonundan çağırılır.
+		break;	
+	case 2:															//		Eğer kullanıcı menüyü görüp seçimini 2 girerse bu case'e girer ve printf'in içindeki %d
+		printf("Cikarma sonucu: %d\n",cikarmaIslemi(s1,s2));		//"cikarmaIslemi" fonksiyonundan çağırılır.
+		break;														
+	case 3:															//		Eğer kullanıcı menüyü görüp seçimini 3 girerse bu case'e girer ve printf'in içindeki %d
+		printf("Carpma sonucu: %d\n",carpmaIslemi(s1,s2));			//"carpmaIslemi" fonksiyonundan çağırılır.
+		break;														
+	case 4:															//		Eğer kullanıcı menüyü görüp seçimini 4 girerse bu case'e girer ve printf'in içindeki %d
+		printf("Bolme sonucu: %5.2f\n",bolmeIslemi(s1,s2));			//"bolmeIslemi" fonksiyonundan çağırılır.
+		break;														
+	case 5:															//		Eğer kullanıcı menüyü görüp seçimini 5 girerse programdan çıkış yapar.
+		break;														
+	default:														//		Eğer kullanıcı seçimini "1,2,3,4,5" haricinde bir şey girerse ekrana bu yazı çıkar.
+		printf("Yanlis bir tercih yaptiniz...\n");					
+		break;
+	}
+}	
+
+
+// 4 İŞLEM FONKSİYONLARI \\
+
+int toplamaIslemi(int s1,int s2)					//toplama işlemi için gönderilecek fonksiyon
+{
+	return s1+s2;									
+}
+
+	
+int cikarmaIslemi(int s1, int s2)					//çıkarma işlemi için gönderilecek fonksiyon
+{
+	return s1-s2;									
+}
+
+int carpmaIslemi(int s1, int s2)					//çarpma işlemi için gönderilecek fonksiyon
+{
+	return s1*s2;									
+}
+
+float bolmeIslemi(int s1, int s2)					//bölme işlemi için gönderilecek fonksiyon
+{
+	if(s2 == 0)										//Bildiğiniz gibi bölme işleminde bölünen sayı 0 olursa sonuç tanımsız olur.
+	{
+		printf("Tanımsız.\n");
+		return 0;
+	}
+	else
+		return (float)s1/(float)s2;
+}
+
+
