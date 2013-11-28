@@ -1,0 +1,48 @@
+//Vücut kütle indeksni gösteren program. hafta5_soru1: http://rerol.files.wordpress.com/2013/09/23_10_2013labsorularc4b1.pdf
+
+#include <stdio.h>
+#include <conio.h>
+#include <math.h>
+#include <Windows.h>
+void erkekSonuc();
+void bayanSonuc();
+int vucutKutleIndeksi(int);
+
+void main()
+{
+	float VKİ;
+	float k,b;
+	char cins;
+
+	printf("Lutfen cinsiyetinizi giriniz: ");
+	scanf("%c",&cins);
+	if(cins != 'e' && cins != 'k')
+	{
+		for(;;)
+		{	
+			printf("Yanlis bir secim girdiniz.\n");
+			printf("Lutfen cinsiyetinizi giriniz: \n");
+			scanf("%c",&cins);
+			if(cins == 'e')
+				erkekSonuc();
+			if (cins == 'k')
+				bayanSonuc();
+			else
+			{
+				printf("Yanlis bir secim girdiniz.");
+				system("cls");
+			}
+
+		}
+	}
+
+	else if(cins=='e')
+	{
+		erkekSonuc();
+	}
+	else if(cins=='k')
+	{
+		bayanSonuc();
+	}
+	getch();
+}
