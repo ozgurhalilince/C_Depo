@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <windows.h>
+void fonk();
+int fonk_a(int);
+int fonk_b(int);
+int fonk_c(int);
+
+int main()
+{
+	int x,a,b,c;
+	fonk();
+	
+	getch();
+}
+
+void fonk()
+{	
+	int x,a,b,c;
+	for(;;)
+	{
+		printf("Lutfen 3 basamkli bir sayi giriniz: ");
+		scanf("%d",&x);
+
+		if(x<100 || x>999)
+		{
+			printf("Girdiginiz sayi 3 basamakli degildir.\n");
+			Sleep(1000);
+			system("cls");
+		}
+
+		else
+			break;
+	}
+	for(;;){
+		a= fonk_a(x);
+		b= fonk_b(x);
+		c= fonk_c(x);
+
+		if(a!=c && b!=c && a!=b)
+		{
+			if(a>b && a>c)
+				printf("En buyuk sayi sagdan 3. sayidir.");
+			if(b>a && b>c)
+				printf("En buyuk sayi sagdan 2. sayidir.");
+			if(c>b && c>a)
+				printf("En buyuk sayi sagdan 1. sayidir.");
+			getch();
+		}
+		else
+		{
+			printf("Girilen sayinin rakamlari birbirinden farkli degildir. Lutfen tekrar giriniz.");
+			scanf("%d",&x);
+			Sleep(1000);
+			system("cls");
+			if(x<100 || x>999)
+			{
+				for(;;)
+				{
+					printf("Girdiginiz sayi 3 basamakli degildir. Lutfen tekrar giriniz.\n");
+					scanf("%d",&x);
+					Sleep(1000);
+					system("cls");
+				if(x>99 && x<1000)
+					break;
+				}		
+			}
+		}
+	}
+
+}
+int fonk_a(int x)
+{
+	return x/100;
+}
+
+int fonk_b(int x)
+{
+	return (x%100)/10;
+}
+
+int fonk_c(int x)
+{
+	return x%10;
+}
