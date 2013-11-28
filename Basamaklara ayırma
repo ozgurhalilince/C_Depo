@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <Windows.h>
+void fonk();
+int fonk_a(int);
+int fonk_b(int);
+int fonk_c(int);
+int fonk_d(int);
+
+void main()
+{
+	int x;
+		fonk();
+		getch();
+}
+
+void fonk()
+{	
+	int x,a,b,c,d;
+	
+	for(;;)
+	{
+		printf("Cozumlenecek sayi: ");
+		scanf("%d",&x);
+
+		if(x<1000 || x>9999)
+		{
+			printf("Girdiginiz sayi 4 basamakli degildir.\n");
+			Sleep(1000);
+			system("cls");
+		}
+
+		else
+			break;
+	}			
+
+	a= fonk_a(x);
+	b= fonk_b(x);
+	c= fonk_c(x);
+	d= fonk_d(x);
+					
+		printf("\nGirilen sayi = %d.\n",x);
+		printf("\n%d tane binlik sayi\n",a);
+		printf("\n%d tane yuzluk sayi\n",b);
+		printf("\n%d tane onluk sayi\n",c);
+		printf("\n%d tane birlik sayi vardir.",d);
+}
+
+int fonk_a(int x)
+{
+	return x/1000;
+}
+
+int fonk_b(int x)
+{
+	return (x%1000)/100;
+}
+
+int fonk_c(int x)
+{
+	return (x%100)/10;
+}
+
+int fonk_d(int x)
+{
+	return x%10;
+}
