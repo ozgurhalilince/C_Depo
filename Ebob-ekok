@@ -1,0 +1,54 @@
+
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+void ebob_ekok();
+int fonk(int,int);
+
+void main()
+{
+	int a,b,ekok,x,y;
+	ebob_ekok();
+	getch();
+}
+
+void ebob_ekok()
+{
+	int a,b,ekok,x,y;
+	printf("1. sayiyi giriniz: ");
+	scanf("%d",&x);
+	printf("2. sayiyi giriniz: ");
+	scanf("%d",&y);
+	for(int i=1; i<x+y; i++)
+	{
+		if(x%i==0 && y%i==0)
+		{
+			system("CLS");
+			printf("Girilen sayilar: %d ve %d \n",x,y);
+			printf("ebob = %d\n",i);
+		}
+	}
+	a=x;
+	b=y;
+	for(;;)
+	{
+		if(a>b)
+
+			a=fonk(a,b);
+
+		else if(b>a)
+			b=fonk(b,a);
+
+		else
+			break;
+	}
+	ekok = (x*y/a);
+	printf("ekok = %d",ekok);
+	
+}
+
+int fonk(int x,int y)
+{
+	return x-y;
+}
+
