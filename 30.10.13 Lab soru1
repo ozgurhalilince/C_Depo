@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <windows.h>
+void hesaplama();
+int fonk_a(int);
+int fonk_b(int);
+int fonk_c(int);
+int fonk_d(int);
+
+void main()
+{
+	int x,a,b,c,d,i,sayac=1;
+
+	hesaplama();
+
+	getch();
+}
+
+
+void hesaplama()
+{	
+	int x;
+	int a,b,c,d;
+	int sayac=1;
+	for(;;)
+	{
+		printf("Lutfen 4 basamkli bir sayi giriniz: ");
+		scanf("%d",&x);
+
+		if(x<1000 || x>9999)
+		{
+			printf("Girdiginiz sayi 4 basamakli degildir.\n");
+			Sleep(1000);
+			system("cls");
+		}
+
+		else
+			break;
+	}
+
+	a= fonk_a(x);
+	b= fonk_b(x);
+	c= fonk_c(x);
+	d= fonk_d(x);
+
+	if(a!=b && a!=c && a!=d)
+		sayac++;
+	else
+		sayac=sayac;
+	if (b!=c && b!=d)
+		sayac++;
+	else
+		sayac=sayac;
+
+	if (c!=d)
+		sayac++;
+	else
+		sayac=sayac;
+	printf("Girdiginiz sayi %d tane farkli rakamdan olusmaktadir.",sayac);
+
+}
+
+int fonk_a(int x)
+{
+	return x/1000;
+}
+
+int fonk_b(int x)
+{
+	return (x%1000)/100;
+}
+
+int fonk_c(int x)
+{
+	return (x%100)/10;
+}
+
+int fonk_d(int x)
+{
+	return x%10;
+}
