@@ -1,3 +1,5 @@
+//   Soru : 	Bir dizideki n’inci en büyük sayıyı bulan metodu yazınız.
+
 #include <stdio.h>
 #include <conio.h>
 void main(){
