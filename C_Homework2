@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <conio.h>
+
+void main()
+{
+        int a,b,c,d,e;
+        printf("Cozumlenecek sayi: ");
+        scanf("%d",&a);                                //Çözümlenecek sayıyı 'a' diye tanıttım.
+
+        b=a/1000;                                        // Sayının binler basamağını bulmak için sayıyı 1000'e bölüp, bölümü kullandım.
+        c=(a%1000)/100;                                // Sayının yüzler basamağını bulmak için sayının 1000'e bölümünden kalanının, 100'e bölümünü kullandım.
+        d=(a%100)/10;                                // Sayının onlar basamağını bulmak için sayının 100'e bölümünden kalanının, 10'a bölümünü kullandım.
+        e=a%10;                                                // Sayının birler basamığını bulmak için sayının 10'a bölümünden kalanını kullandım.
+                printf("\nGirilen sayi = %d.\n",a);
+                printf("\n%d tane binlik sayi\n",b);
+                printf("\n%d tane yuzluk sayi\n",c);
+                printf("\n%d tane onluk sayi\n",d);
+                printf("\n%d tane birlik sayi vardir.",e);
+                getch();
+}
